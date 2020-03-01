@@ -1,17 +1,17 @@
 * {
     box-sizing: border-box;
     margin: 0;
-    max-width: 100vw;
 }
 
-body, html {
-    height: 100vh;
+html {
+    height: 100%;
     background-color: #222;
     color: white;
     font-family: sans-serif;
 }
 
 body {
+    height: fit-content;
     animation: fade-in 1s 1;
     display: flex;
     flex-direction: column;
@@ -61,7 +61,7 @@ body {
     display: flex;
     flex-direction: column;
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     transform-origin: bottom left;
 }
 
@@ -101,8 +101,8 @@ body {
 
 #intro-header {
     margin: auto;
-    height: fit-content;
     font-size: 4em;
+    z-index: 1;
 }
 
 #main-body {
@@ -119,6 +119,7 @@ body {
     position: fixed;
     display: flex;
     justify-content: space-between;
+    z-index: 1;
     bottom: 0;
     right: 0;
 }
@@ -188,7 +189,6 @@ body {
         font-size: 2vmin;
     }
 }
-
 
 @keyframes fade-in {
     from { opacity: 0; }
