@@ -5,55 +5,190 @@
 }
 
 body, html {
-    width: 100vw;
-    height: fit-content;
-    background-color: black;
+    height: 100vh;
+    background-color: #222;
     color: white;
     font-family: sans-serif;
 }
 
-.fs {
-    width: 100vw;
-    height: 100vh;
-}
-
-.c-wrap {
-    display: flex;
-}
-
-#intro-container {
-    height: 98vh;
-    background-image: url(./images/mainbackground.jpg); /* https://www.pexels.com/@minan1398?utm_content=attributionCopyText */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: scroll;
+body {
+    animation: fade-in 1s 1;
     display: flex;
     flex-direction: column;
 }
 
-.attrib {
-    margin: 0 auto;
-    font-size: 1.1em;
+.social-logo {
+    background-color: white;
+    border-radius: 50%;
     flex: 1 0 auto;
-    color: inherit;
-    text-decoration: none;
-    width: fit-content;
-    height: fit-content;
-    position: relative;
-    bottom: -5vmin;
 }
 
+.social-logo:hover {
+    filter: brightness(0.75);
+}
+
+.menu-open {
+    width: 70vw;
+    height: 100vh;
+    color: #aaaaaa;
+    transition: transform 0.2s, width 0.2s 0.1s, height 0.2s 0.2s, color 0.5s, background-color 0.5s;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.menu-closed {
+    transform: rotate(90deg);
+    color: black;
+    width: 6em;
+    height: 2.31em;
+    margin: auto;
+    transition: transform 0.2s 0.2s, width 0.2s 0.1s, height 0.2s, color 0.5s, background-color 0.5s;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.menu-open > ul {
+    text-decoration: none;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-closed > ul {
+    display: none;
+}
+
+#menu-bar {
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    z-index: 1;
+    transform-origin: bottom left;
+}
+
+#menu-button {
+    cursor: pointer;
+    user-select: none;
+    height: fit-content;
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+}
+
+#intro-container {
+    display: flex;
+    height: 30vh;
+    width: 100%;
+    position: relative;
+    background-color: black;
+}
+
+#intro-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: inherit;
+    width: 100%;
+    background: url(./images/code.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    filter: blur(4px);
+    opacity: 0.5;
+}
 
 #intro-header {
-    margin: 0 auto;
-    position: relative;
-    top: 10vh;
+    margin: auto;
     height: fit-content;
-    font-size: 9vmin;
-    animation: fade-in 1s 1;
-    flex: 10 0 auto;
+    font-size: 4em;
 }
+
+#main-body {
+    padding: 1em;
+}
+
+#main-body > p {
+    font-size: 5vmin;
+    color: #ececec;
+}
+
+#socials-container {
+    max-width: 30vw;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    bottom: 0;
+    right: 0;
+}
+
+#socials-container > a {
+    width: fit-content;
+    height: fit-content;
+    flex: 1 0 auto;
+    padding: 0.5vh;
+}
+
+
+/* tablet */
+@media screen and (min-width: 768px) {
+    .menu-open {
+        width: 40vw;
+        height: 100vh;
+    }
+
+    #intro-header {
+        font-size: 10vh;
+    }
+
+    #main-body > p {
+        font-size: 4vmin;
+    }
+}
+
+/* laptop */
+@media screen and (min-width: 1024px) {
+    .menu-open {
+        width: 20vw;
+        height: 35vw;
+    }
+
+    #intro-container {
+        height: 25vw;
+    }
+
+    #intro-header {
+        font-size: 15vh;
+    }
+
+    #main-body > p {
+        text-align: center;
+        font-size: 4vmin;
+    }
+}
+
+/* desktop */
+@media screen and (min-width: 1600px) {
+    .menu-open {
+        width: 15vw;
+        height: 25vw;
+    }
+
+    #intro-container {
+        height: 40vh;
+    }
+
+    #intro-header {
+        font-size: 12vh;
+    }
+
+    #main-body > p {
+        text-align: center;
+        font-size: 2vmin;
+    }
+}
+
 
 @keyframes fade-in {
     from { opacity: 0; }
